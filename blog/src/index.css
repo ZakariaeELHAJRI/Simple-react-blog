@@ -6,11 +6,18 @@
   font-family: "Quicksand";
   color: #333;
 }
+.home {
+  padding: 20px;
+  align-items: center;
+  max-width: 70%;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 70%;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
