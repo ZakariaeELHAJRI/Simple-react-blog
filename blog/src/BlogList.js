@@ -1,7 +1,10 @@
 import { useState } from "react";
-const BlogList = (props) => {
+
+//we can use destructuring to get the props directly in the function parameters like this:
+const BlogList = ({blogs}) => {
     const [details, setDetails] = useState('');
-    const {blogs } = props;
+   // const {blogs } = props;
+   
     return ( 
         <div className="blog-list">
             <h2>Blog List</h2>
