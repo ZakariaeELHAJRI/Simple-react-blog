@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 const Home = () => {
     const [blogs, setBlogs] = useState([
         { title: 'My new website', body: 'My new website lorem ipsum...', author: 'zakariae', id: 1 },
@@ -7,27 +8,12 @@ const Home = () => {
     ]);
     const [details, setDetails] = useState('');
  
-   
+   //create a new external component to handle the blog list and use props to pass the data
     return ( 
         <div className="home">
-            {blogs.map((blog) => (
-                <div className="blog-preview" key={blog.id} onClick={()=>(
-                    setDetails(blog.body)  
-                )}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by {blog.author}</p>
-
-                </div>
-            ))}
-               <div className="blog-details">
-                    
-                    <p> { details}</p>
-
-                </div>
-                 
-           
+        <BlogList  blogs={blogs} details={details}/>
         </div>
     );
 }
- // useState hook to make a reactive value 
+
 export default Home;
