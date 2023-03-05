@@ -1,17 +1,19 @@
+import { useState } from "react";
 const Home = () => {
+    const [name , setName]= useState('zakariae');
     const handleClick = () => {
         console.log(' button clicked');
+        setName('Zakariae Elhajri');
     }
-    const handleClickAgain = (name) => {
-        console.log(' button 2 clicked'+name);
-    }
+   
     return ( 
         <div className="home">
             <h2>Homepage</h2>
-            <button onClick={handleClick}>Click button</button>
-            <button onClick={() => handleClickAgain(' zakariae')}>Click button</button>
+            <p>{name}</p>
+            <button onClick={handleClick}>Click button to change name</button>
+            
         </div>
      );
 }
- 
+ // useState hook to make a reactive value 
 export default Home;
