@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //we can use destructuring to get the props directly in the function parameters like this:
-const BlogList = ({blogs, handleDelete}) => {
+const BlogList = ({blogs}) => {
     const [details, setDetails] = useState('');
    // const {blogs } = props;
    
@@ -14,7 +14,7 @@ const BlogList = ({blogs, handleDelete}) => {
                 )}>
                     <h2>{blog.title}</h2>
                     <p>Written by {blog.author}</p>
-                <button className="btn btn-danger" onClick={()=>handleDelete(blog.id)} >Delete Blog</button>
+                <button className="btn btn-danger" >Delete Blog "there is not function"</button>
 
                 </div>
             ))}
