@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './components/Home';
@@ -10,13 +11,15 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <div className='content'>
+        
+        <div className="content">
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/Create' component={Create} />
+          <Route exact path="/" component={Home} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/create" component={Create} />
           </Switch>
         </div>
+
       </div>
     </Router>
   );
