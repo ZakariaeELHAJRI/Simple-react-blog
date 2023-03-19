@@ -1,13 +1,24 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import Home from './Home';
+import Home from './components/Home';
+import Contact from './components/Contact';
+import Create from './components/Create';
+//npx json-server --watch data/db.json --port 8000
+
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <div className='conetnt'>
-        <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className='content'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/Create' component={Create} />
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
