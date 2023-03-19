@@ -6,8 +6,10 @@ const useFetch = (url) => {
    
           
     useEffect(() => {
+        //abort controller to abort the fetch request when the component is unmounted 
+        const abortCont = new AbortController();
         setTimeout(() => {
-               fetch(url)
+               fetch(url, { signal: abortCont.signal })
              .then(res => {
                  if (!res.ok) {
                      throw Error('could not fetch the data for that resource');
@@ -20,12 +22,18 @@ const useFetch = (url) => {
                  setError(null);
              })
              .catch(err => {
-                 setError(err.message);
-                 setIsPending(false);
+                    if (err.name === 'AbortError') {
+                        console.log('fetch aborted');
+                    } else {
+                    setError(err.message);
+                    setIsPending(false);
+                    }
+               
              })
- 
+             return () => abortCont.abort();
         }, 1000);
    
+
      }, [url])
    return { data, isPending, error };
 }
